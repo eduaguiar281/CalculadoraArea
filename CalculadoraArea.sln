@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraArea", "CalculadoraArea\CalculadoraArea.csproj", "{B39A11AC-418A-4923-8F72-94D981078E97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculadoraArea", "CalculadoraArea\CalculadoraArea.csproj", "{B39A11AC-418A-4923-8F72-94D981078E97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraArea.Tests", "CalculadoraArea.Tests\CalculadoraArea.Tests.csproj", "{A4B6A507-D8F9-4530-B411-A0438552AB17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculadoraArea.Tests", "CalculadoraArea.Tests\CalculadoraArea.Tests.csproj", "{A4B6A507-D8F9-4530-B411-A0438552AB17}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SUVFactory", "SUVFactory\SUVFactory.csproj", "{5DC54851-6289-43A7-809D-E746BAE22387}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SUVFactory.Tests", "SUVFactory.Tests\SUVFactory.Tests.csproj", "{6117404B-E678-4E3B-A592-B0FE84F4FA60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula 01 - Fundamentos", "Aula 01 - Fundamentos", "{6E0A113E-DF4C-4499-A18F-F3F6F68951E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula 02 - Asserts e Traits", "Aula 02 - Asserts e Traits", "{2550ED54-01AB-49D6-92B9-E26442F59CFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +29,23 @@ Global
 		{A4B6A507-D8F9-4530-B411-A0438552AB17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4B6A507-D8F9-4530-B411-A0438552AB17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4B6A507-D8F9-4530-B411-A0438552AB17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC54851-6289-43A7-809D-E746BAE22387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC54851-6289-43A7-809D-E746BAE22387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC54851-6289-43A7-809D-E746BAE22387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC54851-6289-43A7-809D-E746BAE22387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6117404B-E678-4E3B-A592-B0FE84F4FA60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6117404B-E678-4E3B-A592-B0FE84F4FA60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6117404B-E678-4E3B-A592-B0FE84F4FA60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6117404B-E678-4E3B-A592-B0FE84F4FA60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B39A11AC-418A-4923-8F72-94D981078E97} = {6E0A113E-DF4C-4499-A18F-F3F6F68951E0}
+		{A4B6A507-D8F9-4530-B411-A0438552AB17} = {6E0A113E-DF4C-4499-A18F-F3F6F68951E0}
+		{5DC54851-6289-43A7-809D-E746BAE22387} = {2550ED54-01AB-49D6-92B9-E26442F59CFB}
+		{6117404B-E678-4E3B-A592-B0FE84F4FA60} = {2550ED54-01AB-49D6-92B9-E26442F59CFB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B04A0C0C-8CFD-43AC-BBC9-81D9DBE8718E}
