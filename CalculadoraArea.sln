@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula 02 - Asserts e Traits"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula 03 - Fixtures", "Aula 03 - Fixtures", "{8B9FF0B2-9986-4887-956C-03C816FB0CA5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aluno.Domain", "Aluno.Domain\Aluno.Domain.csproj", "{54D14C27-5030-4943-8724-5D4EC4DEAA59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6117404B-E678-4E3B-A592-B0FE84F4FA60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6117404B-E678-4E3B-A592-B0FE84F4FA60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6117404B-E678-4E3B-A592-B0FE84F4FA60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54D14C27-5030-4943-8724-5D4EC4DEAA59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54D14C27-5030-4943-8724-5D4EC4DEAA59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54D14C27-5030-4943-8724-5D4EC4DEAA59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54D14C27-5030-4943-8724-5D4EC4DEAA59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{A4B6A507-D8F9-4530-B411-A0438552AB17} = {6E0A113E-DF4C-4499-A18F-F3F6F68951E0}
 		{5DC54851-6289-43A7-809D-E746BAE22387} = {2550ED54-01AB-49D6-92B9-E26442F59CFB}
 		{6117404B-E678-4E3B-A592-B0FE84F4FA60} = {2550ED54-01AB-49D6-92B9-E26442F59CFB}
+		{54D14C27-5030-4943-8724-5D4EC4DEAA59} = {8B9FF0B2-9986-4887-956C-03C816FB0CA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B04A0C0C-8CFD-43AC-BBC9-81D9DBE8718E}
