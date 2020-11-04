@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alunos.Domain.Tests", "Alun
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula 04 - Dados Humanos", "Aula 04 - Dados Humanos", "{395DC750-5010-43BB-95F1-355A31427E41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alunos.TestesHumanos", "Alunos.TestesHumanos\Alunos.TestesHumanos.csproj", "{D06198E4-07D1-498A-A7E2-93195C03891F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alunos.TestesHumanos", "Alunos.TestesHumanos\Alunos.TestesHumanos.csproj", "{D06198E4-07D1-498A-A7E2-93195C03891F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

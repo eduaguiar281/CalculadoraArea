@@ -19,6 +19,21 @@ namespace Alunos.TestesHumanos
 
         public Aluno GerarAlunoValido()
         {
+            return GerarAlunos(1, true).FirstOrDefault();
+        }
+
+        public IEnumerable<Aluno> ObterColecaoDeAlunos()
+        {
+            var alunos = new List<Aluno>();
+
+            alunos.AddRange(GerarAlunos(50, true).ToList());
+            alunos.AddRange(GerarAlunos(50, false).ToList());
+
+            return alunos;
+        }
+
+        public IEnumerable<Aluno> GerarAlunos(int quantidade, bool ativo)
+        {
             var genero = new Faker().PickRandom<Name.Gender>();
 
             var random = new Random();
@@ -27,7 +42,7 @@ namespace Alunos.TestesHumanos
             //var alunofaker = new Faker<Aluno>();
             //alunofaker.RuleFor(c => c.Nome, (f, c) => f.Name.FirstName());
 
-            var aluno = new Faker<Aluno>("pt_BR")
+            var alunos = new Faker<Aluno>("pt_BR")
                 .CustomInstantiator(f => new Aluno(
                     Guid.NewGuid(),
                     f.Name.FirstName(genero),
@@ -37,12 +52,13 @@ namespace Alunos.TestesHumanos
                     DateTime.Now,
                     "",
                     $"{random.Next(1, 999999):000000}",
-                    true))
+                    ativo))
                 .RuleFor(c => c.Email, (f, c) =>
                       f.Internet.Email(c.Nome.ToLower(), c.SobreNome.ToLower()));
 
-            return aluno;
+            return alunos.Generate(quantidade);
         }
+
 
         public Aluno GerarAlunoInvalido()
         {

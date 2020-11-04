@@ -45,16 +45,6 @@ namespace Alunos.TestesHumanos
             Assert.NotEqual(0, aluno.ValidationResult.Errors.Count);
         }
 
-        [Fact(DisplayName = "Lista de Aluno Valido")]
-        [Trait("Tipo", "Aluno Bogus Testes")]
-        public void Aluno_Lista_DeveEstarValido()
-        {
-            // Arrange
-            var alunos = _alunoTestesBogusFixture.ObterColecaoDeAlunos();
-
-            // Act & Assert
-            Assert.All(alunos, (a) => Assert.True(a.EhValido()));
-        }
 
     }
 }
