@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Aluno.Domain.Alunos
+namespace Alunos.Domain.Alunos
 {
     public class AlunoValidacao: AbstractValidator<Aluno>
     {

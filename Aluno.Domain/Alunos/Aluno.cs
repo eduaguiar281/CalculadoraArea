@@ -1,21 +1,22 @@
-﻿using Aluno.Domain.Core;
+﻿using Alunos.Domain.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Aluno.Domain.Alunos
+namespace Alunos.Domain.Alunos
 {
     public class Aluno: BaseEntity
     {
 
-        public Aluno(string nome, string sobreNome, 
+        public Aluno(Guid id, string nome, string sobreNome, 
             List<string> responsaveis, DateTime dataNascimento, 
             DateTime dataCadastro, string email, string matricula, 
             bool ativo)
         {
+            Id = id == Guid.Empty ? Guid.NewGuid() : id;
             Nome = nome;
             SobreNome = sobreNome;
-            Responsaveis = responsaveis;
+            Responsaveis = responsaveis ?? new List<string>();
             DataNascimento = dataNascimento;
             DataCadastro = dataCadastro;
             Email = email;
@@ -36,7 +37,7 @@ namespace Aluno.Domain.Alunos
         }
         public bool EhMaiorDeIdade()
         {
-            return DataNascimento <= DateTime.Now.AddYears(-18) ;
+            return DataNascimento > DateTime.Now.AddYears(-18) ;
         }
 
         public void Inativar()

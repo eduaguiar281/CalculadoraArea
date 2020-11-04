@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace Aluno.Domain.Core
+namespace Alunos.Domain.Core
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : BaseEntity
     {

@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Results;
 using System;
 
-namespace Aluno.Domain.Core
+namespace Alunos.Domain.Core
 {
     public abstract class BaseEntity
     {

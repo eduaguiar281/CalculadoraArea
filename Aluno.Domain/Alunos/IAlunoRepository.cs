@@ -1,9 +1,9 @@
-﻿using Aluno.Domain.Core;
+﻿using Alunos.Domain.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Aluno.Domain.Alunos
+namespace Alunos.Domain.Alunos
 {
     public interface IAlunoRepository: IRepository<Aluno>
     {

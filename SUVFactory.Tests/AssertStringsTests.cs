@@ -8,6 +8,12 @@ namespace SUVFactory.Tests
 {
     public class AssertStringsTests
     {
+
+        public AssertStringsTests()
+        {
+
+        }
+
         [Fact(DisplayName = "Verificar Nome WR-V - LX")]
         [Trait("Tipo", "Honda SUV Factory")]
         public void HondaSUVFactory_CreateWrvLx_DeveRetornarNomeCorreto()

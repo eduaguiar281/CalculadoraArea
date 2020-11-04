@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Aluno.Domain.Alunos
+namespace Alunos.Domain.Alunos
 {
     public class AlunoService: IAlunoService
     {

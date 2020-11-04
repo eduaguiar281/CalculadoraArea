@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula 02 - Asserts e Traits"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula 03 - Fixtures", "Aula 03 - Fixtures", "{8B9FF0B2-9986-4887-956C-03C816FB0CA5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aluno.Domain", "Aluno.Domain\Aluno.Domain.csproj", "{54D14C27-5030-4943-8724-5D4EC4DEAA59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alunos.Domain", "Aluno.Domain\Alunos.Domain.csproj", "{54D14C27-5030-4943-8724-5D4EC4DEAA59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aluno.Domain.Tests", "Aluno.Domain.Tests\Aluno.Domain.Tests.csproj", "{F0B20A28-CC2F-4810-8ACB-30F68FBF8690}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alunos.Domain.Tests", "Aluno.Domain.Tests\Alunos.Domain.Tests.csproj", "{F0B20A28-CC2F-4810-8ACB-30F68FBF8690}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
