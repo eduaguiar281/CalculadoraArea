@@ -17,17 +17,17 @@ namespace Alunos.Domain.Tests
 
         [Fact(DisplayName = "Novo Aluno Válido")]
         [Trait("Tipo", "Aluno Fixture Testes")]
-        public void Cliente_NovoCliente_DeveEstarValido()
+        public void Aluno_NovoAluno_DeveEstarValido()
         {
             // Arrange
-            var cliente = _alunoTestsFixture.GerarAlunoValido();
+            var aluno = _alunoTestsFixture.GerarAlunoValido();
 
             // Act
-            var result = cliente.EhValido();
+            var result = aluno.EhValido();
 
             // Assert 
             Assert.True(result);
-            Assert.Equal(0, cliente.ValidationResult.Errors.Count);
+            Assert.Equal(0, aluno.ValidationResult.Errors.Count);
         }
 
     }
