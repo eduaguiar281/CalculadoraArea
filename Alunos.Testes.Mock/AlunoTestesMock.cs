@@ -26,10 +26,10 @@ namespace Alunos.Testes.Mock
             var alunoRepo = new Mock<IAlunoRepository>();
             var mediatr = new Mock<IMediator>();
 
-            var clienteService = new AlunoService(alunoRepo.Object, mediatr.Object);
+            var alunoService = new AlunoService(alunoRepo.Object, mediatr.Object);
 
             // Act
-            clienteService.Adicionar(aluno);
+            alunoService.Adicionar(aluno);
 
             // Assert
                //Assert.True(aluno.EhValido());
@@ -47,10 +47,10 @@ namespace Alunos.Testes.Mock
             var alunoRepo = new Mock<IAlunoRepository>();
             var mediatr = new Mock<IMediator>();
 
-            var clienteService = new AlunoService(alunoRepo.Object, mediatr.Object);
+            var alunoService = new AlunoService(alunoRepo.Object, mediatr.Object);
 
             // Act
-            clienteService.Adicionar(aluno);
+            alunoService.Adicionar(aluno);
 
             // Assert
                 //Assert.False(aluno.EhValido());
