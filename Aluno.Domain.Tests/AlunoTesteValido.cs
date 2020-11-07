@@ -20,7 +20,7 @@ namespace Alunos.Domain.Tests
         public void Aluno_NovoAluno_DeveEstarValido()
         {
             // Arrange
-            var aluno = _alunoTestsFixture.GerarAlunoValido();
+            var aluno = _alunoTestsFixtures.GerarAlunoValido();
 
             // Act
             var result = aluno.EhValido();

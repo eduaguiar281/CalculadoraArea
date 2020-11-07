@@ -2,9 +2,6 @@
 using Bogus;
 using Bogus.DataSets;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace Alunos.TestesHumanos
@@ -21,12 +18,6 @@ namespace Alunos.TestesHumanos
         {
             var genero = new Faker().PickRandom<Name.Gender>();
 
-            var random = new Random();
-
-            //var email = new Faker().Internet.Email("eduardo","aguiar","gmail");
-            //var alunofaker = new Faker<Aluno>();
-            //alunofaker.RuleFor(c => c.Nome, (f, c) => f.Name.FirstName());
-
             var aluno = new Faker<Aluno>("pt_BR")
                 .CustomInstantiator(f => new Aluno(
                     Guid.NewGuid(),
@@ -36,34 +27,27 @@ namespace Alunos.TestesHumanos
                     f.Date.Past(25, DateTime.Now.AddYears(-19)),
                     DateTime.Now,
                     "",
-                    $"{random.Next(1, 999999):000000}",
+                    f.IndexFaker.ToString(),
                     true))
                 .RuleFor(c => c.Email, (f, c) =>
                       f.Internet.Email(c.Nome.ToLower(), c.SobreNome.ToLower()));
-
             return aluno;
         }
 
         public Aluno GerarAlunoInvalido()
         {
-            var genero = new Faker().PickRandom<Name.Gender>();
-
-            var random = new Random();
-
-            var aluno = new Faker<Aluno>("pt_BR")
-                .CustomInstantiator(f => new Aluno(
-                    Guid.NewGuid(),
-                    f.Name.FirstName(genero),
-                    f.Name.LastName(genero),
-                    null,
-                    f.Date.Past(4, DateTime.Now.AddYears(-8)),
-                    DateTime.Now,
-                    "",
-                    $"{random.Next(1,999999):000000}",
-                    false));
+            var aluno = new Aluno
+                (Guid.NewGuid(),
+                 "Maria",
+                 "da Silva",
+                 null,
+                 DateTime.Now.AddYears(-7),
+                 DateTime.Now,
+                 "eduaguiar281",
+                 "123416",
+                 true);
             return aluno;
         }
-
 
         public void Dispose()
         {
