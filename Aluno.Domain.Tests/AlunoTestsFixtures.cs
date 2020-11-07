@@ -7,15 +7,14 @@ using Xunit;
 namespace Alunos.Domain.Tests
 {
     [CollectionDefinition(nameof(AlunoCollection))]
-    public class AlunoCollection: ICollectionFixture<AlunoTestsFixtures>
+    public class AlunoCollection : ICollectionFixture<AlunoTestsFixtures>
     {
         public AlunoCollection()
         {
 
         }
-    
-    }
 
+    }
 
     public class AlunoTestsFixtures : IDisposable
     {
@@ -28,7 +27,7 @@ namespace Alunos.Domain.Tests
         public Aluno GerarAlunoValido()
         {
             var aluno = new Aluno
-                ( Guid.NewGuid(),
+                (Guid.NewGuid(),
                 "Eduardo",
                  "Rodrigues de Aguiar",
                  null,

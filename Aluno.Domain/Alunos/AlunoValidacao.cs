@@ -26,7 +26,8 @@ namespace Alunos.Domain.Alunos
 
             RuleFor(c => c.Email)
                 .NotEmpty()
-                .EmailAddress();
+                .EmailAddress()
+                .WithMessage("Email informado não é válido!");
 
             RuleFor(c => c.Id)
                 .NotEqual(Guid.Empty);
