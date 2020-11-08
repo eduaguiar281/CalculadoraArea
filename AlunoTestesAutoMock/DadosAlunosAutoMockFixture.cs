@@ -16,6 +16,8 @@ namespace Alunos.Testes.AutoMock
     public class DadosAlunosAutoMockFixture : IDisposable
     {
 
+        public AutoMocker Mocker;
+
         public Aluno GerarAlunoValido()
         {
             return GerarAlunos(1, true).FirstOrDefault();
@@ -77,6 +79,11 @@ namespace Alunos.Testes.AutoMock
             return aluno;
         }
 
+        public AlunoService ObterAlunoService()
+        {
+            Mocker = new AutoMocker();
+            return Mocker.CreateInstance<AlunoService>();
+        }
 
         public void Dispose()
         {
