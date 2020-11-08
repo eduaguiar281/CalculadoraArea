@@ -18,7 +18,11 @@ namespace CalculadoraArea.Tests
             calculadora.Calcular();
 
             //Assert
-            Assert.Equal(706.85834705770344, calculadora.Resultado);
+            Assert.Equal(706.858, calculadora.Resultado, 3);
+            
+            //Para Mostrar o NotEqual
+
+            Assert.NotEqual(706.859, calculadora.Resultado, 3);
         }
 
         [Fact]
