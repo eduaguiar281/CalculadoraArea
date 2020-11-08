@@ -27,10 +27,13 @@ namespace Alunos.TestesHumanos
                     f.Date.Past(25, DateTime.Now.AddYears(-19)),
                     DateTime.Now,
                     "",
-                    f.IndexFaker.ToString(),
+                    "",
                     true))
                 .RuleFor(c => c.Email, (f, c) =>
-                      f.Internet.Email(c.Nome.ToLower(), c.SobreNome.ToLower()));
+                      f.Internet.Email(c.Nome.ToLower(), c.SobreNome.ToLower()))
+                .RuleFor(c => c.Matricula, (f, c) => 
+                      f.Random.Number(99999).ToString());
+
             return aluno;
         }
 
