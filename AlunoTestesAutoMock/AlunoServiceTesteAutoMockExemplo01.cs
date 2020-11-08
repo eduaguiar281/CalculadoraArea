@@ -28,15 +28,16 @@ namespace Alunos.Testes.AutoMock
         {
             // Arrange
             var aluno = _dadosAlunoAutoMockFixture.GerarAlunoValido();
-            var mocker = new AutoMocker();
-            var alunoService = mocker.CreateInstance<AlunoService>();
+            var alunoRepo = new Mock<IAlunoRepository>();
+            var mediator = new Mock<IMediator>();
+            var alunoService = new AlunoService(alunoRepo.Object, mediator.Object);
 
             // Act
             alunoService.Adicionar(aluno);
 
             // Assert
-            mocker.GetMock<IAlunoRepository>().Verify(r => r.Adicionar(aluno), Times.Once);
-            mocker.GetMock<IMediator>().Verify(m => m.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Once);
+            alunoRepo.Verify(r => r.Adicionar(aluno), Times.Once);
+            mediator.Verify(m => m.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Once);
         }
 
         [Fact(DisplayName = "Adicionar Aluno com Falha")]
@@ -45,37 +46,37 @@ namespace Alunos.Testes.AutoMock
         {
             // Arrange
             var aluno = _dadosAlunoAutoMockFixture.GerarAlunoInvalido();
-            var mocker = new AutoMocker();
-            var alunoService = mocker.CreateInstance<AlunoService>();
+            var alunoRepo = new Mock<IAlunoRepository>();
+            var mediator = new Mock<IMediator>();
+            var alunoService = new AlunoService(alunoRepo.Object, mediator.Object);
 
             // Act
             alunoService.Adicionar(aluno);
 
             // Assert
-            mocker.GetMock<IAlunoRepository>().Verify(r => r.Adicionar(aluno), Times.Never);
-            mocker.GetMock<IMediator>().Verify(m => m.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Never);
-
+            alunoRepo.Verify(r => r.Adicionar(aluno), Times.Never);
+            mediator.Verify(m => m.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Never);
         }
 
         [Fact(DisplayName = "Obter Alunos com Ativos")]
         [Trait("Tipo", "Exemplo 01- Aluno Service AutoMock Testes")]
-        private void AlunoService_ObterAlunosAtivos_DeveRetornar()
+        public void AlunoService_ObterAlunosAtivos_DeveRetornar()
         {
             // Arrange
-            var mocker = new AutoMocker();
-            var alunoService = mocker.CreateInstance<AlunoService>();
-
-            mocker.GetMock<IAlunoRepository>().Setup(c => c.ObterTodos())
+            var alunoRepo = new Mock<IAlunoRepository>();
+            var mediator = new Mock<IMediator>();
+            alunoRepo.Setup(a => a.ObterTodos())
                 .Returns(_dadosAlunoAutoMockFixture.ObterColecaoDeAlunos());
 
+            var alunoService = new AlunoService(alunoRepo.Object, mediator.Object);
+
             // Act
-            var clientes = alunoService.ObterTodosAtivos();
+            var alunos = alunoService.ObterTodosAtivos();
 
             // Assert 
-            mocker.GetMock<IAlunoRepository>().Verify(r => r.ObterTodos(), Times.Once);
-            Assert.True(clientes.Any());
-            Assert.False(clientes.Count(c => !c.Ativo) > 0);
-
+            alunoRepo.Verify(r => r.ObterTodos(), Times.Once);
+            Assert.True(alunos.Any());
+            Assert.False(alunos.Count(a => !a.Ativo) > 0);
         }
 
     }

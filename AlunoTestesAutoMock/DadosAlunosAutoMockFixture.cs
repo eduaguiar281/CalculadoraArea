@@ -16,11 +16,6 @@ namespace Alunos.Testes.AutoMock
     public class DadosAlunosAutoMockFixture : IDisposable
     {
 
-        //Acrescentar para o Exemplo 02
-
-        public AutoMocker Mocker;
-        //Fim Acrecentar
-
         public Aluno GerarAlunoValido()
         {
             return GerarAlunos(1, true).FirstOrDefault();
@@ -40,8 +35,6 @@ namespace Alunos.Testes.AutoMock
         {
             var genero = new Faker().PickRandom<Name.Gender>();
 
-            var random = new Random();
-
             var alunos = new Faker<Aluno>("pt_BR")
                 .CustomInstantiator(f => new Aluno(
                     Guid.NewGuid(),
@@ -51,10 +44,12 @@ namespace Alunos.Testes.AutoMock
                     f.Date.Past(25, DateTime.Now.AddYears(-19)),
                     DateTime.Now,
                     "",
-                    $"{random.Next(1, 999999):000000}",
+                    "",
                     ativo))
                 .RuleFor(c => c.Email, (f, c) =>
-                      f.Internet.Email(c.Nome.ToLower(), c.SobreNome.ToLower()));
+                      f.Internet.Email(c.Nome.ToLower(), c.SobreNome.ToLower()))
+                .RuleFor(c => c.Matricula, (f, c) =>
+                      f.Random.Number(99999).ToString());
 
             return alunos.Generate(quantidade);
         }
@@ -75,8 +70,10 @@ namespace Alunos.Testes.AutoMock
                     f.Date.Past(4, DateTime.Now.AddYears(-8)),
                     DateTime.Now,
                     "",
-                    $"{random.Next(1, 999999):000000}",
-                    false));
+                    "",
+                    false))
+                .RuleFor(c => c.Matricula, (f, c) =>
+                      f.Random.Number(99999).ToString());
             return aluno;
         }
 
@@ -85,11 +82,5 @@ namespace Alunos.Testes.AutoMock
         {
         }
 
-
-        public AlunoService ObterAlunoService()
-        {
-            Mocker = new AutoMocker();
-            return Mocker.CreateInstance<AlunoService>();
-        }
     }
 }
