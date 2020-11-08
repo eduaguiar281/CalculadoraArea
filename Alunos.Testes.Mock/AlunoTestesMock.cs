@@ -24,17 +24,15 @@ namespace Alunos.Testes.Mock
             // Arrange
             var aluno = _alunoTestesMockFixture.GerarAlunoValido();
             var alunoRepo = new Mock<IAlunoRepository>();
-            var mediatr = new Mock<IMediator>();
-
-            var alunoService = new AlunoService(alunoRepo.Object, mediatr.Object);
+            var mediator = new Mock<IMediator>();
+            var alunoService = new AlunoService(alunoRepo.Object, mediator.Object);
 
             // Act
             alunoService.Adicionar(aluno);
 
             // Assert
-               //Assert.True(aluno.EhValido());
             alunoRepo.Verify(r => r.Adicionar(aluno), Times.Once);
-            mediatr.Verify(m => m.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Once);
+            mediator.Verify(m => m.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Once);
 
         }
 
@@ -45,17 +43,15 @@ namespace Alunos.Testes.Mock
             // Arrange
             var aluno = _alunoTestesMockFixture.GerarAlunoInvalido();
             var alunoRepo = new Mock<IAlunoRepository>();
-            var mediatr = new Mock<IMediator>();
-
-            var alunoService = new AlunoService(alunoRepo.Object, mediatr.Object);
+            var mediator = new Mock<IMediator>();
+            var alunoService = new AlunoService(alunoRepo.Object, mediator.Object);
 
             // Act
             alunoService.Adicionar(aluno);
 
             // Assert
-                //Assert.False(aluno.EhValido());
             alunoRepo.Verify(r => r.Adicionar(aluno), Times.Never);
-            mediatr.Verify(m => m.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Never);
+            mediator.Verify(m => m.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Never);
         }
 
 
@@ -65,19 +61,19 @@ namespace Alunos.Testes.Mock
         {
             // Arrange
             var alunoRepo = new Mock<IAlunoRepository>();
-            var mediatr = new Mock<IMediator>();
-
-            alunoRepo.Setup(c => c.ObterTodos())
+            var mediator = new Mock<IMediator>();
+            alunoRepo.Setup(a => a.ObterTodos())
                 .Returns(_alunoTestesMockFixture.ObterColecaoDeAlunos());
-            var alunoService = new AlunoService(alunoRepo.Object, mediatr.Object);
+            
+            var alunoService = new AlunoService(alunoRepo.Object, mediator.Object);
 
             // Act
-            var clientes = alunoService.ObterTodosAtivos();
+            var alunos = alunoService.ObterTodosAtivos();
 
             // Assert 
             alunoRepo.Verify(r => r.ObterTodos(), Times.Once);
-            Assert.True(clientes.Any());
-            Assert.False(clientes.Count(c => !c.Ativo) > 0);
+            Assert.True(alunos.Any());
+            Assert.False(alunos.Count(a => !a.Ativo) > 0);
         }
     }
 }

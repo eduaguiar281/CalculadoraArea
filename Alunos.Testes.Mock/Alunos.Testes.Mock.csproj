@@ -7,9 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bogus" Version="31.0.3" />
+    <Compile Remove="AlunoTestesBogusFixture.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bogus" Version="31.0.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
-    <PackageReference Include="Moq" Version="4.14.7" />
+    <PackageReference Include="moq" Version="4.14.7" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
